@@ -22,7 +22,7 @@ const SearchInput = ({searchTerm, setSearchTerm , setLoading}) => {
                     focusBorderColor="teal.400"
                 />
             </InputGroup>
-            <p className="italic">Note: Please enter at least 3 characters for the best search experiences</p>
+            <p className="italic">Note: Enter at least 3 characters for the best search experiences</p>
         </div>
     )
 }

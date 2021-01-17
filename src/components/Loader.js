@@ -4,7 +4,14 @@ import { Spinner } from "@chakra-ui/react"
 const Loader = () => {
     return (
         <div className="loader">
-            <Spinner size="xl" />
+            <Spinner
+            m="5"
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="teal.500"
+            size="xl"
+            />
             <p>Getting Movies...</p>
         </div>
     )
