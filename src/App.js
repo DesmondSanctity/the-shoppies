@@ -15,13 +15,25 @@ function App() {
   const [nomIDS, setNomIDS] = useState([])
 
   useEffect(() => {
+    const FetchMovies = async () => {
+      try {
+        const response = await axios.get(baseURL + searchTerm)
+        setResults(response.data);
+        setLoading(false);
+        if (response.data.Response === "True" && searchTerm !== '') {
+          setMovies(response.data.Search)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
     FetchMovies()
     if (searchTerm === '' || loading) {
       setResults([]) ;
       setMovies([]);
     }
 
-  }, [searchTerm])
+  }, [ searchTerm, loading])
 
   useEffect(() => {
     let nominations = JSON.parse(localStorage.getItem("nominations")) || []
@@ -29,18 +41,7 @@ function App() {
     setNomIDS(IDS)
   }, [nomMovie])
 
-  const FetchMovies = async () => {
-    try {
-      const response = await axios.get(baseURL + searchTerm)
-      setResults(response.data);
-      setLoading(false);
-      if (response.data.Response === "True" && searchTerm !== '') {
-        setMovies(response.data.Search)
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
 
   return (
     <div className="App">
