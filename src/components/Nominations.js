@@ -39,7 +39,7 @@ const Nominations = ({nomMovie, setNomIDS}) => {
             <div className="nominations-list">
             {nominationList.map((movie, index) => {
                 return (
-                    <Box w="100%" maxW="300px" borderWidth="1px" borderRadius="lg" overflow="hidden" key={index} m="2" d="flex" bg="teal.400" mx="auto">
+                    <Box w="100%" maxW="500px" borderWidth="1px" borderRadius="lg" overflow="hidden" key={index} m="2" d="flex" bg="gray.200" mx="auto">
                         <Image src={movie.Poster !== "N/A" ? movie.Poster : placeholderImage} alt={movie.Title} height="200px" width="150px"/>
                         <Box p="2" width="100%" d="flex" flexDirection="column" justifyContent="space-around">
                             <Box d="flex" alignItems="baseline" mt="2">
